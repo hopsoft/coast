@@ -21,8 +21,7 @@ But wait... there's more.
 * **Implicit security** via authorization with your favorite libs *...such as CanCan*
 
 ## TL;DR
-
-**Quick-start for the lazy**
+### Quick-start for the lazy
 
 ```bash
 $gem install coast
@@ -35,7 +34,8 @@ Lazy::Application.routes.draw do
 end
 ```
 
-```# app/controllers/bums_controller.rb
+```ruby
+# app/controllers/bums_controller.rb
 class BumsController < ApplicationController
   include Coast
 end
