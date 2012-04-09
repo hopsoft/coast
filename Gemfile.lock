@@ -1,0 +1,28 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    activesupport (3.2.3)
+      i18n (~> 0.6)
+      multi_json (~> 1.0)
+    ansi (1.4.2)
+    coderay (1.0.6)
+    i18n (0.6.0)
+    method_source (0.7.1)
+    minitest (2.12.0)
+    multi_json (1.2.0)
+    pry (0.9.8.4)
+      coderay (~> 1.0.5)
+      method_source (~> 0.7.1)
+      slop (>= 2.4.4, < 3)
+    slop (2.4.4)
+    turn (0.9.4)
+      ansi
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  activesupport
+  minitest (= 2.12.0)
+  pry
+  turn
