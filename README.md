@@ -8,25 +8,25 @@
 
 Simply include a single module in your controller and get these actions for free.
 
-* new
-* edit
-* index
-* show
-* create
-* update
-* destroy
+* `new`
+* `edit`
+* `index`
+* `show`
+* `create`
+* `update`
+* `destroy`
 
 But wait... there's more.
 
-* Support for **html, xml, and json** formats
-* Sinatra like **DSL** for hooking into action callbacks
-* **Implicit security** via authorization with your favorite libs *...such as CanCan*
+* **Lightweight** - about 220 lines of code
+* **Unobtrusive** - no monkey patches
+* **Flexible** - support for html, xml, and json formats
+* **Familiar** - Sinatra like DSL for hooking into action callbacks
+* **Secure** - implicit authorization with your favorite libs *...such as CanCan*
 
 &nbsp;
 
 ### Works best when you stick to Rails conventions
-
-*Actually... bad things happen if you stray from the straight & narrow.*
 
 &nbsp;
 
