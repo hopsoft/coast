@@ -17,15 +17,14 @@ Simply include a single module in your controller and get these actions for free
 But wait... there's more.
 
 * Support for **html, xml, and json** formats
-* Sinatra like **DSL** for hooking into those callbacks
+* Sinatra like **DSL** for hooking into action callbacks
 * **Implicit security** via authorization with your favorite libs *...such as CanCan*
 
 ### Works best when you stick to Rails conventions.
 
 *Actually... bad things will happen if you stray from the straight & narrow.*
 
-## TL;DR
-### Quick-start for the lazy
+## Quick-start for the lazy
 
 ```bash
 $gem install coast
