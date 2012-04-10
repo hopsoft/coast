@@ -20,7 +20,14 @@ But wait... there's more.
 
 ## Quick-start for the lazy
 
-```bash
+Assume you have a simple app structure for beach bums.
+
+```
+app/controllers/bums_controller.rb
+app/models/bum.rb
+```
+
+```
 $gem install coast
 ```
 
@@ -143,7 +150,7 @@ Poke around the test code and let me know what you think.
 
 How to run the tests.
 
-```bash
+```
 $rvm 1.9.3
 $gem install bundler
 $bundle
