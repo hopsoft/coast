@@ -2,7 +2,7 @@
 
 ## ...if only the REST of life were this easy.
 
-Coast provides resourceful behavior for Rails controllers.
+### Coast provides resourceful behavior for Rails controllers.
 
 Simply include a single module in your controller and get these actions for free.
 
