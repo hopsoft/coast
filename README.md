@@ -2,9 +2,7 @@
 
 ## ...if only the REST of life were this easy
 
-### Coast provides resourceful behavior for Rails controllers
-
-&nbsp;
+### Providing resourceful behavior for Rails controllers
 
 Simply include a single module in your controller and get these actions for free.
 
@@ -16,14 +14,11 @@ But wait... there's more.
 * **Unobtrusive** - no monkey patches
 * **Flexible** - support for html, xml, and json formats
 * **Familiar** - Sinatra like DSL for hooking into action callbacks
-* **Secure** - implicit authorization with your favorite libs *...such as CanCan*
-
-&nbsp;
+* **Secure** - implicit authorization with your favorite libs... *such as CanCan*
 
 ### Works best when you stick to Rails conventions
 
 &nbsp;
-
 ## Quick-start for the lazy
 
 ```bash
@@ -47,7 +42,6 @@ end
 Congratulations... you now have a RESTful API for **beach bums**.
 
 &nbsp;
-
 ## Callbacks
 
 Coast uses a Sinatra like DSL to provide hooks into the action lifecycle.
@@ -87,13 +81,12 @@ end
 ```
 
 &nbsp;
-
 ## Authorization
 
 
 
 
-
+&nbsp;
 # The MIT License (MIT)
 Copyright (c) 2012 Nathan Hopkins
 
