@@ -23,8 +23,8 @@ But wait... there's more.
 Assume you have a simple app structure for beach bums.
 
 ```
-app/controllers/bums_controller.rb
-app/models/bum.rb
+app/controllers/beach_bums_controller.rb
+app/models/beach_bum.rb
 ```
 
 Install the GEM.
@@ -38,13 +38,13 @@ Tweak some files.
 ```ruby
 # config/routes.rb
 Beach::Application.routes.draw do
-  resources :bums
+  resources :beach_bums
 end
 ```
 
 ```ruby
-# app/controllers/bums_controller.rb
-class BumsController < ApplicationController
+# app/controllers/beach_bums_controller.rb
+class BeachBumsController < ApplicationController
   include Coast
 end
 ```
@@ -64,15 +64,15 @@ The following hooks are supported for each action.
 ### How to use the callbacks
 
 ```ruby
-# app/controllers/bums_controller.rb
-class BumsController < ApplicationController
+# app/controllers/beach_bums_controller.rb
+class BeachBumsController < ApplicationController
   include Coast
 
   before :show do
-    # take control and load a 'bum' instead of letting Coast do it for us
-    @resourceful_item = Bum.find(params[:id])
+    # take control and load a 'beach_bum' instead of letting Coast do it for us
+    @resourceful_item = BeachBum.find(params[:id])
 
-    # Coast will implicitly create an @bum variable that references @resourceful_item
+    # Coast will implicitly create an @beach_bum variable that references @resourceful_item
     # cool eh?
   end
 
@@ -96,7 +96,8 @@ Coast implicitly calls an authorize method prior to executing any action logic.
 You have complete control over this method. Here's an example.
 
 ```ruby
-class BumsController < ApplicationController
+# app/controllers/beach_bums_controller.rb
+class BeachBumsController < ApplicationController
   include Coast
   authorize_method = :authorize
 
@@ -122,8 +123,8 @@ Coast comes with few tricks up its sleeve.
 You can conditionally prevent mutating behavior on the server by setting an instance variable like so.
 
 ```ruby
-# app/controllers/bums_controller.rb
-class BumsController < ApplicationController
+# app/controllers/beach_bums_controller.rb
+class BeachBumsController < ApplicationController
   include Coast
 
   before :create do
