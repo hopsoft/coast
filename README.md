@@ -60,9 +60,9 @@ Coast uses a Sinatra like DSL to provide hooks into the action lifecycle.
 
 The following hooks are supported for each action.
 
-* before *- before any other action logic is performed*
-* respond_to *- after authorization and db work but before rendering or redirecting*
-* after *- after all other action logic is performed*
+* `before` *- before any other action logic is performed*
+* `respond_to` *- after authorization and db work but before rendering or redirecting*
+* `after` *- after all other action logic is performed*
 
 ### How to use the callbacks
 
