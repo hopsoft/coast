@@ -21,6 +21,11 @@ But wait... there's more.
 * **Implicit security** via authorization with your favorite libs *...such as CanCan*
 
 &nbsp;
+
+I know, I know... you're wondering, "don't other libs *such as ActiveScaffold* already provide RESTfulness?"
+Some certainly do, but how many do it with a single 200 line file with security as a top priority?
+
+&nbsp;
 ### Works best when you stick to Rails conventions.
 
 *Actually... bad things happen if you stray from the straight & narrow.*
