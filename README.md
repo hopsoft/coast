@@ -8,13 +8,7 @@
 
 Simply include a single module in your controller and get these actions for free.
 
-* `new`
-* `edit`
-* `index`
-* `show`
-* `create`
-* `update`
-* `destroy`
+`new` `edit` `index` `show` `create` `update` `destroy`
 
 But wait... there's more.
 
