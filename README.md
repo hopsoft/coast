@@ -13,8 +13,8 @@ But wait... there's more.
 * **Lightweight** - about 220 lines of code
 * **Unobtrusive** - no monkey patches
 * **Flexible** - support for html, xml, and json formats
-* **Familiar** - Sinatra like DSL for hooking into action callbacks
-* **Secure** - implicit authorization with your favorite libs... *such as CanCan*
+* **Familiar** - [Sinatra](http://www.sinatrarb.com/) like DSL for hooking into action callbacks
+* **Secure** - implicit authorization with your favorite libs... *such as [CanCan](https://github.com/ryanb/cancan)*
 
 ### Works best when you stick to Rails conventions
 
@@ -53,7 +53,7 @@ Congratulations... you now have a RESTful API for **beach bums**.
 
 ## Callbacks
 
-Coast uses a Sinatra like DSL to provide hooks into the action lifecycle.
+Coast uses a [Sinatra](http://www.sinatrarb.com/) like DSL to provide hooks into the action lifecycle.
 
 The following hooks are supported for each action.
 
@@ -113,7 +113,7 @@ end
 
 Note the authorize method signature. The first arg is the **action** being performed. The second arg is the **record(s)** being operated on. The last arg is the **request** object.
 
-While originally written to support CanCan, its pretty simple to take control and manage authorization yourself.
+While originally written to support [CanCan](https://github.com/ryanb/cancan), its pretty simple to take control and manage authorization yourself.
 
 ## Advanced Usage
 
