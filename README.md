@@ -94,13 +94,18 @@ class BumsController < ApplicationController
 
   def authorize(action, data, request)
     # restrict all RESTful actions
+    raise "Unauthorized"
+  end
+
+  rescue_from Exception do |ex|
     render :text => "Not Allowed", :status => 404
   end
 end
 ```
 
+Note the authorize method signature. The first arg is the action being performed. The second arg is the record(s) being operated on. The last arg is the request object.
 
-
+While originally written to support CanCan, its pretty simple to take control and manage authorization yourself.
 
 &nbsp;
 # The MIT License (MIT)
