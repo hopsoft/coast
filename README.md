@@ -24,14 +24,17 @@ But wait... there's more.
 
 &nbsp;
 
-I know, I know... you're wondering, "don't other libs *such as ActiveScaffold* already provide RESTfulness?"
+I know, I know... you're wondering, "don't other libs, *such as ActiveScaffold*, already provide RESTfulness?"
 
 Some certainly do, but how many do it with a single 200 line file with security as a top priority?
 
 &nbsp;
+
 ### Works best when you stick to Rails conventions.
 
 *Actually... bad things happen if you stray from the straight & narrow.*
+
+&nbsp;
 
 ## Quick-start for the lazy
 
@@ -54,6 +57,8 @@ end
 ```
 
 Congratulations... you now have a RESTful API for **beach bums**.
+
+&nbsp;
 
 ## Callbacks
 
@@ -91,6 +96,8 @@ class BumsController < ApplicationController
 
 end
 ```
+
+&nbsp;
 
 ## Authorization
 
