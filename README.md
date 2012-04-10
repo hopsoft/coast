@@ -2,7 +2,7 @@
 
 ## ...if only the REST of life were this easy
 
-### Coast provides resourceful behavior for Rails controllers.
+### Coast provides resourceful behavior for Rails controllers
 
 &nbsp;
 
@@ -21,12 +21,6 @@ But wait... there's more.
 * Support for **html, xml, and json** formats
 * Sinatra like **DSL** for hooking into action callbacks
 * **Implicit security** via authorization with your favorite libs *...such as CanCan*
-
-&nbsp;
-
-I know, I know... you're wondering, "don't other libs, *such as ActiveScaffold*, already provide RESTfulness?"
-
-Some certainly do, but how many do it with a lightweight 200 line file and security as a top priority?
 
 &nbsp;
 
