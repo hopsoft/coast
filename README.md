@@ -66,11 +66,13 @@ class BumsController < ApplicationController
   before :show do
     # take control and load a 'bum' instead of letting Coast do it for us
     @resourceful_item = Bum.find(params[:id])
-    # Coast will implicitly create an @bum variable that references the @resourceful_item
+
+    # Coast will implicitly create an @bum variable that references @resourceful_item
+    # cool eh?
   end
 
   respond_to :show do
-    # take control of rendering or redirecting
+    # take control of rendering or redirecting instead of letting Coast do it for us
     render :text => "Out Fishing."
   end
 
