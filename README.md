@@ -1,6 +1,6 @@
 # Coast
 
-## Providing resourceful behavior for Rails controllers
+## Providing resourceful behavior for [Rails controllers](http://guides.rubyonrails.org/action_controller_overview.html)
 
 ### ...if only the REST of life were this easy
 
@@ -16,7 +16,7 @@ But wait... there's more.
 * **Familiar** - [Sinatra](http://www.sinatrarb.com/) like DSL for hooking into action callbacks
 * **Secure** - implicit authorization with your favorite libs... *such as [CanCan](https://github.com/ryanb/cancan)*
 
-### Works best when you stick to Rails conventions
+### Works best when you stick to [Rails conventions](http://guides.rubyonrails.org/getting_started.html)
 
 ## Quick-start for the lazy
 
@@ -57,9 +57,9 @@ Coast uses a [Sinatra](http://www.sinatrarb.com/) like DSL to provide hooks into
 
 The following hooks are supported for each action.
 
-* `before` *- before any other action logic is performed... just like a Rails before_filter*
+* `before` *- before any other action logic is performed... just like a [Rails before_filter](http://guides.rubyonrails.org/action_controller_overview.html#filters)*
 * `respond_to` *- after authorization and db work but before rendering or redirecting*
-* `after` *- after all other action logic is performed... just like a Rails after_filter*
+* `after` *- after all other action logic is performed... just like a [Rails after_filter](http://guides.rubyonrails.org/action_controller_overview.html#filters)*
 
 ### How to use the callbacks
 
@@ -107,7 +107,7 @@ class BeachBumsController < ApplicationController
   end
 
   rescue_from Exception do |ex|
-    render :text => "Not Allowed", :status => 404
+    render :text => "Not Allowed", :status => 401
   end
 end
 ```
