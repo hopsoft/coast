@@ -4,6 +4,8 @@
 
 ### Coast provides resourceful behavior for Rails controllers.
 
+&nbsp;
+
 Simply include a single module in your controller and get these actions for free.
 
 * new
@@ -23,6 +25,7 @@ But wait... there's more.
 &nbsp;
 
 I know, I know... you're wondering, "don't other libs *such as ActiveScaffold* already provide RESTfulness?"
+
 Some certainly do, but how many do it with a single 200 line file with security as a top priority?
 
 &nbsp;
