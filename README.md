@@ -10,7 +10,7 @@ Simply include the Coast module in your controller and get these actions for fre
 
 But wait... there's more.
 
-* **Lightweight** - about 200 lines of code... *you can grok it in about 10 minutes*
+* **Lightweight** - about 200 lines of code... *you can grok it in 10 minutes by skimming lib/coast.rb*
 * **Unobtrusive** - no monkey patches
 * **Flexible** - support for html, xml, and json formats
 * **Familiar** - [Sinatra](http://www.sinatrarb.com/) like DSL for hooking into action callbacks
