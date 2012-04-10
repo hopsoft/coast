@@ -27,9 +27,13 @@ app/controllers/bums_controller.rb
 app/models/bum.rb
 ```
 
+Install the GEM.
+
 ```
 $gem install coast
 ```
+
+Tweak some files.
 
 ```ruby
 # config/routes.rb
