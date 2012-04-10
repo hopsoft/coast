@@ -1,6 +1,6 @@
 # Coast
 
-## ...if only the REST of life were this easy.
+## ...if only the REST of life were this easy
 
 ### Coast provides resourceful behavior for Rails controllers.
 
@@ -30,7 +30,7 @@ Some certainly do, but how many do it with a lightweight 200 line file and secur
 
 &nbsp;
 
-### Works best when you stick to Rails conventions.
+### Works best when you stick to Rails conventions
 
 *Actually... bad things happen if you stray from the straight & narrow.*
 
@@ -62,14 +62,15 @@ Congratulations... you now have a RESTful API for **beach bums**.
 
 ## Callbacks
 
-Coast uses a Sinatra like DSL to provide you with hooks into the action lifecycle.
+Coast uses a Sinatra like DSL to provide hooks into the action lifecycle.
+
 The following hooks are supported for each action.
 
 * before *- before any other action logic is performed*
 * respond_to *- after authorization and db work but before rendering or redirecting*
 * after *- after all other action logic is performed*
 
-### How to use the callbacks.
+### How to use the callbacks
 
 ```ruby
 # app/controllers/bums_controller.rb
