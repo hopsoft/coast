@@ -83,7 +83,7 @@ class BeachBumsController < ApplicationController
 
   after :show do
     # do some last minute housekeeping after every thing else is done
-    flash[:notice] = "Sorry... we'll be back when the surf stops crackin'"
+    flash[:notice] = "Sorry brah... we'll be back when the surf stops crackin'"
   end
 
 end
@@ -99,7 +99,7 @@ You have complete control over this method. Here's an example.
 # app/controllers/beach_bums_controller.rb
 class BeachBumsController < ApplicationController
   include Coast
-  authorize_method = :authorize
+  set_authorize_method :authorize
 
   def authorize(action, data, request)
     # restrict all RESTful actions
@@ -119,6 +119,16 @@ While originally written to support [CanCan](https://github.com/ryanb/cancan), i
 ## Advanced Usage
 
 Coast comes with few tricks up its sleeve.
+
+If your model and controller names deviate from Rails conventions, you can explicitly set the model like so.
+
+```ruby
+# app/controllers/beach_bums_controller.rb
+class BeachBumsController < ApplicationController
+  include Coast
+  set_resourceful_model SurferDude
+end
+```
 
 You can conditionally prevent mutating behavior on the server by setting an instance variable like so.
 
