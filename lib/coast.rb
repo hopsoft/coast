@@ -250,7 +250,6 @@ module Coast
   def item_instance_var_name
     return @item_instance_var_name if @item_instance_var_name
     name = resourceful_model.name.underscore.gsub("/", "_")
-    puts name
     @item_instance_var_name ||= "@#{name}"
   end
 

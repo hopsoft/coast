@@ -46,9 +46,9 @@ Coast uses a Sinatra like DSL to provide hooks into the action lifecycle.
 
 The following hooks are supported for each action.
 
-* `before` *- before any other action logic is performed*
+* `before` *- before any other action logic is performed... just like a Rails before_filter*
 * `respond_to` *- after authorization and db work but before rendering or redirecting*
-* `after` *- after all other action logic is performed*
+* `after` *- after all other action logic is performed... just like a Rails after_filter*
 
 ### How to use the callbacks
 
@@ -103,6 +103,37 @@ end
 Note the authorize method signature. The first arg is the **action** being performed. The second arg is the **record(s)** being operated on. The last arg is the **request** object.
 
 While originally written to support CanCan, its pretty simple to take control and manage authorization yourself.
+
+## Advanced Usage
+
+Coast comes with few tricks up its sleeve.
+
+You can conditionally prevent mutating behavior on the server by setting an instance variable like so.
+
+```ruby
+# app/controllers/bums_controller.rb
+class BumsController < ApplicationController
+  include Coast
+
+  before :create do
+    # prevent the user from actually creating a record
+    @skip_db_create = true
+  end
+
+  before :update do
+    # prevent the user from actually saving a record
+    @skip_db_update = true
+  end
+
+  before :destroy do
+    # prevent the user from actually destroying a record
+    @skip_db_destroy = true
+  end
+
+end
+```
+
+Its a little arcane, but that's on purpose.
 
 ## Testing
 
