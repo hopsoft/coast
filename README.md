@@ -103,9 +103,19 @@ class BumsController < ApplicationController
 end
 ```
 
-Note the authorize method signature. The first arg is the action being performed. The second arg is the record(s) being operated on. The last arg is the request object.
+Note the authorize method signature. The first arg is the **action** being performed. The second arg is the **record(s)** being operated on. The last arg is the **request** object.
 
 While originally written to support CanCan, its pretty simple to take control and manage authorization yourself.
+
+&nbsp;
+## Contributing
+
+I'm looking for hand outs, so please fork and submit pull requests. Bug fixes, features, whatever...
+
+Thanks for reading,
+
+> Nathan
+
 
 &nbsp;
 # The MIT License (MIT)
