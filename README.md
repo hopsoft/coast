@@ -104,6 +104,21 @@ Note the authorize method signature. The first arg is the **action** being perfo
 
 While originally written to support CanCan, its pretty simple to take control and manage authorization yourself.
 
+## Testing
+
+There are some interesting additions to MiniTest::Mock since I mock the heck out of Rails in order to test. Poke around the code and let me know what you think.
+
+How to run the tests.
+
+```bash
+$rvm 1.9.3
+$gem install bundler
+$bundle
+$rake test
+```
+
+Ahh... passing tests.
+
 ## Contributing
 
 I'm looking for hand-outs, so please fork and submit pull requests. Bug fixes, features, whatever...
