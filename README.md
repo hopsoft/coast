@@ -1,10 +1,10 @@
 # Coast
 
-## ...if only the REST of life were this easy
+## Providing resourceful behavior for Rails controllers
 
-### Providing resourceful behavior for Rails controllers
+### ...if only the REST of life were this easy
 
-Simply include a single module in your controller and get these actions for free.
+Simply include the Coast module in your controller and get these actions for free.
 
 `new` `edit` `index` `show` `create` `update` `destroy`
 
@@ -69,12 +69,12 @@ class BumsController < ApplicationController
 
   respond_to :show do
     # take control of rendering or redirecting instead of letting Coast do it for us
-    render :text => "Out Fishing."
+    render :text => "Out surfing."
   end
 
   after :show do
     # do some last minute housekeeping after every thing else is done
-    flash[:notice] = "Sorry... we'll be back soon."
+    flash[:notice] = "Sorry... we'll be back when the surf stops crackin'"
   end
 
 end
@@ -82,6 +82,22 @@ end
 
 &nbsp;
 ## Authorization
+
+Coast implicitly calls an authorize method prior to executing any action logic.
+
+You have complete control over this method. Here's an example.
+
+```ruby
+class BumsController < ApplicationController
+  include Coast
+  authorize_method = :authorize
+
+  def authorize(action, data, request)
+    # restrict all RESTful actions
+    render :text => "Not Allowed", :status => 404
+  end
+end
+```
 
 
 
