@@ -1,6 +1,6 @@
 # Coast
 
-### ...if only the REST of life were this easy.
+## ...if only the REST of life were this easy.
 
 Coast provides resourceful behavior for Rails controllers.
 
@@ -20,9 +20,10 @@ But wait... there's more.
 * Sinatra like **DSL** for hooking into action callbacks
 * **Implicit security** via authorization with your favorite libs *...such as CanCan*
 
+&nbsp;
 ### Works best when you stick to Rails conventions.
 
-*Actually... bad things will happen if you stray from the straight & narrow.*
+*Actually... bad things happen if you stray from the straight & narrow.*
 
 ## Quick-start for the lazy
 
