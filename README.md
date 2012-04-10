@@ -20,6 +20,10 @@ But wait... there's more.
 * Sinatra like **DSL** for hooking into those callbacks
 * **Implicit security** via authorization with your favorite libs *...such as CanCan*
 
+**Works best when you stick to Rails conventions.**
+
+*Actually... bad things will happen if you stray from the straight & narrow.*
+
 ## TL;DR
 ### Quick-start for the lazy
 
@@ -29,7 +33,7 @@ $gem install coast
 
 ```ruby
 # config/routes.rb
-Lazy::Application.routes.draw do
+Beach::Application.routes.draw do
   resources :bums
 end
 ```
@@ -41,7 +45,7 @@ class BumsController < ApplicationController
 end
 ```
 
-Congratulations... you now have a RESTful API for **lazy bums**.
+Congratulations... you now have a RESTful API for **beach bums**.
 
 ## Callbacks
 
@@ -49,13 +53,33 @@ Coast uses a Sinatra like DSL to provide you with access points into the action 
 The following hooks are supported for each action.
 
 * before *- before any other action logic is performed*
-* respond_to *- after authorization and db work but before rendering*
-* after *- after all other logic*
+* respond_to *- after authorization and db work but before rendering or redirecting*
+* after *- after all other action logic is performed*
 
-Here are some examples of how to use this stuff.
+Here are some examples of how to use the callbacks.
 
 ```ruby
-# soon...
+# app/controllers/bums_controller.rb
+class BumsController < ApplicationController
+  include Coast
+
+  before :show do
+    # take control and load a 'bum' instead of letting Coast do it for us
+    @resourceful_item = Bum.find(params[:id])
+    # Coast will implicitly create an @bum variable that references the @resourceful_item
+  end
+
+  respond_to :show do
+    # take control of rendering or redirecting
+    render :text => "Out Fishing."
+  end
+
+  after :show do
+    # do some last minute housekeeping after every thing else is done
+    flash[:notice] = "Sorry... we'll be back soon."
+  end
+
+end
 ```
 
 ## Authorization
