@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = "coast"
-  s.version     = "1.0.0"
+  s.version     = "0.9.0"
   s.date        = "2012-04-06"
   s.summary     = "Coast"
   s.description = "Resourceful behavior for Rails controllers with a Sinatra like DSL."
@@ -9,4 +9,5 @@ Gem::Specification.new do |s|
   s.files       = [ "lib/coast.rb" ]
   s.homepage    ="https://github.com/hopsoft/coast"
   s.add_dependency("activesupport")
+  s.license = "MIT"
 end

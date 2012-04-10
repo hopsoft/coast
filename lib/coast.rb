@@ -249,8 +249,9 @@ module Coast
 
   def item_instance_var_name
     return @item_instance_var_name if @item_instance_var_name
-    name = resourceful_model.name.underscore
-    @item_instance_var_name ||= "@#{name[(name.rindex(/\//) + 1)..-1]}"
+    name = resourceful_model.name.underscore.gsub("/", "_")
+    puts name
+    @item_instance_var_name ||= "@#{name}"
   end
 
   def list_instance_var_name
