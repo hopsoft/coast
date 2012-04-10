@@ -130,7 +130,7 @@ class BeachBumsController < ApplicationController
 end
 ```
 
-You can conditionally prevent mutating behavior on the server by setting an instance variable like so.
+You can conditionally prevent mutating behavior on the server by setting an instance variable like so. *It's a little arcane, but that's on purpose.*
 
 ```ruby
 # app/controllers/beach_bums_controller.rb
@@ -154,8 +154,6 @@ class BeachBumsController < ApplicationController
 
 end
 ```
-
-Its a little arcane, but that's on purpose.
 
 ## Testing
 
