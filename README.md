@@ -18,7 +18,6 @@ But wait... there's more.
 
 ### Works best when you stick to Rails conventions
 
-&nbsp;
 ## Quick-start for the lazy
 
 ```bash
@@ -41,7 +40,6 @@ end
 
 Congratulations... you now have a RESTful API for **beach bums**.
 
-&nbsp;
 ## Callbacks
 
 Coast uses a Sinatra like DSL to provide hooks into the action lifecycle.
@@ -80,7 +78,6 @@ class BumsController < ApplicationController
 end
 ```
 
-&nbsp;
 ## Authorization
 
 Coast implicitly calls an authorize method prior to executing any action logic.
@@ -107,18 +104,17 @@ Note the authorize method signature. The first arg is the **action** being perfo
 
 While originally written to support CanCan, its pretty simple to take control and manage authorization yourself.
 
-&nbsp;
 ## Contributing
 
-I'm looking for hand outs, so please fork and submit pull requests. Bug fixes, features, whatever...
+I'm looking for hand-outs, so please fork and submit pull requests. Bug fixes, features, whatever...
 
 Thanks for reading,
 
 > Nathan
 
+## License
 
-&nbsp;
-# The MIT License (MIT)
+### The MIT License (MIT)
 Copyright (c) 2012 Nathan Hopkins
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
