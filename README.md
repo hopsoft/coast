@@ -106,7 +106,9 @@ While originally written to support CanCan, its pretty simple to take control an
 
 ## Testing
 
-There are some interesting additions to MiniTest::Mock since I mock the heck out of Rails in order to test. Poke around the code and let me know what you think.
+There are some interesting additions to MiniTest::Mock since I mock some of Rails to make testing fast & fun.
+
+Poke around the test code and let me know what you think.
 
 How to run the tests.
 
