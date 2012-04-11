@@ -181,12 +181,6 @@ I'm looking for hand-outs, so please fork and submit pull requests. Bug fixes, f
 <blockquote class="twitter-tweet"><p>I'm tired of writing RESTful boilerplate (& scaffold is overkill), so I'm stoked @<a href="https://twitter.com/natehop">natehop</a> released the Coast gem: <a href="https://t.co/gjCukFoW" title="https://github.com/hopsoft/coast">github.com/hopsoft/coast</a></p>&mdash; Brandon Hays (@tehviking) <a href="https://twitter.com/tehviking/status/189739333857710080" data-datetime="2012-04-10T15:39:17+00:00">April 10, 2012</a></blockquote>
 <script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
----
-
-Thanks for reading,
-
-> Nathan
-
 ## License
 
 ### The MIT License (MIT)
