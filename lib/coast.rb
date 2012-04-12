@@ -80,23 +80,19 @@ module Coast
   # -----------------------------------------------------------------------------------------------
   # begin restful actions
 
-
   # begin UI actions
   def new
     invoke_callback(:before_new)
     @resourceful_item ||= resourceful_model.new
     send(self.class.authorize_method, :new, @resourceful_item, request)
     init_instance_variables
-
     invoke_callback(:respond_to_new)
     unless performed?
       respond_to do |format|
         format.html { render :new }
-        format.xml { render :xml => { :message => "Format not supported! Use the html format." } }
-        format.json { render :json => { :message => "Format not supported! Use the html format." } }
+        format_json_and_xml(format, :message => "Format not supported! Use the html format.")
       end
     end
-
     invoke_callback(:after_new)
   end
 
@@ -106,19 +102,15 @@ module Coast
     send(self.class.authorize_method, :edit, @resourceful_item, request)
     init_instance_variables
     invoke_callback(:respond_to_edit)
-
     unless performed?
       respond_to do |format|
         format.html { render :edit }
-        format.xml { render :xml => { :message => "Format not supported! Use the html format." } }
-        format.json { render :json => { :message => "Format not supported! Use the html format." } }
+        format_json_and_xml(format, :message => "Format not supported! Use the html format.")
       end
     end
-
     invoke_callback(:after_edit)
   end
   # end UI actions
-
 
   # begin READ actions
   def index
@@ -126,16 +118,13 @@ module Coast
     @resourceful_list ||= resourceful_model.all
     send(self.class.authorize_method, :index, @resourceful_list, request)
     init_instance_variables
-
     invoke_callback(:respond_to_index)
     unless performed?
       respond_to do |format|
         format.html { render :index }
-        format.xml { render :xml => @resourceful_list }
-        format.json { render :json => @resourceful_list }
+        format_json_and_xml(format, @resourceful_list)
       end
     end
-
     invoke_callback(:after_index)
   end
 
@@ -144,20 +133,16 @@ module Coast
     @resourceful_item ||= resourceful_model.find(params[:id])
     send(self.class.authorize_method, :show, @resourceful_item, request)
     init_instance_variables
-
     invoke_callback(:respond_to_show)
     unless performed?
       respond_to do |format|
         format.html { render :show }
-        format.xml { render :xml => @resourceful_item }
-        format.json { render :json => @resourceful_item }
+        format_json_and_xml(format, @resourceful_item)
       end
     end
-
     invoke_callback(:after_show)
   end
   # end READ actions
-
 
   # begin MUTATING actions
   def create
@@ -166,23 +151,19 @@ module Coast
     send(self.class.authorize_method, :create, @resourceful_item, request)
     init_instance_variables
     success = @skip_db_create || @resourceful_item.save
-
     invoke_callback(:respond_to_create)
     unless performed?
       respond_to do |format|
         if success
           flash[:notice] = "#{resourceful_model.name} was successfully created."
           format.html { redirect_to(@resourceful_item) }
-          format.xml { render :xml => @resourceful_item, :status => :created, :location => @resourceful_item }
-          format.json { render :json => @resourceful_item, :status => :created, :location => @resourceful_item }
+          format_json_and_xml(format, @resourceful_item, :status => :created, :location => @resourceful_item)
         else
           format.html { render :action => "new" }
-          format.xml { render :xml => @resourceful_item.errors, :status => :unprocessable_entity }
-          format.json { render :json => @resourceful_item.errors, :status => :unprocessable_entity }
+          format_json_and_xml(format, @resourceful_item.errors, :status => :unprocessable_entity)
         end
       end
     end
-
     invoke_callback(:after_create)
   end
 
@@ -192,23 +173,19 @@ module Coast
     send(self.class.authorize_method, :update, @resourceful_item, request)
     init_instance_variables
     success = @skip_db_update || @resourceful_item.update_attributes(params[resourceful_model.name.underscore])
-
     invoke_callback(:respond_to_update)
     unless performed?
       respond_to do |format|
         if success
           flash[:notice] = "#{resourceful_model.name} was successfully updated."
           format.html { redirect_to(@resourceful_item) }
-          format.xml { render :xml => @resourceful_item }
-          format.json { render :json => @resourceful_item }
+          format_json_and_xml(format, @resourceful_item)
         else
           format.html { render :action => "edit" }
-          format.xml { render :xml => @resourceful_item.errors, :status => :unprocessable_entity }
-          format.json { render :json => @resourceful_item.errors, :status => :unprocessable_entity }
+          format_json_and_xml(format, @resourceful_item.errors, :status => :unprocessable_entity)
         end
       end
     end
-
     invoke_callback(:after_update)
   end
 
@@ -218,17 +195,14 @@ module Coast
     send(self.class.authorize_method, :destroy, @resourceful_item, request)
     init_instance_variables
     @resourceful_item.destroy unless @skip_db_destroy
-
     invoke_callback(:respond_to_destroy)
     unless performed?
       flash[:notice] = "#{resourceful_model.name} was successfully destroyed" if @resourceful_item.destroyed?
       respond_to do |format|
         format.html { redirect_to root_url }
-        format.xml { render :xml => @resourceful_item }
-        format.json { render :json => @resourceful_item }
+        format_json_and_xml(format, @resourceful_item)
       end
     end
-
     invoke_callback(:after_destroy)
   end
   # end MUTATING actions
@@ -261,6 +235,11 @@ module Coast
 
   def invoke_callback(name)
     send(name) if respond_to?(name)
+  end
+
+  def format_json_and_xml(format, data, options={})
+    format.xml { render({:xml => data}.merge(options)) }
+    format.json { render({:json => data}.merge(options)) }
   end
 
 end
