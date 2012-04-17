@@ -10,10 +10,9 @@ unless defined? Gem::Deprecate
 end
 
 require "bundler/setup"
+Bundler.require(:default, :test)
 require "minitest/autorun"
 require "active_support/all"
-require "turn"
-require "pry"
 
 dirname = File.dirname(__FILE__)
 require File.join(dirname, "mock")
