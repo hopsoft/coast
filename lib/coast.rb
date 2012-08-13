@@ -115,7 +115,7 @@ module Coast
   # begin READ actions
   def index
     invoke_callback(:before_index)
-    @resourceful_list ||= resourceful_model.all
+    @resourceful_list ||= resourceful_model.all(params.reject{|k,v|['action', 'format', 'controller'].include?(k)})
     send(self.class.authorize_method, :index, @resourceful_list, request)
     init_instance_variables
     invoke_callback(:respond_to_index)
