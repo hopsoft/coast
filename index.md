@@ -1,8 +1,11 @@
-# Coast
+---
+layout: main
+---
+# Coast {#coast}
 
-## Providing resourceful behavior for [Rails controllers](http://guides.rubyonrails.org/action_controller_overview.html)
+## Providing resourceful behavior for [Rails controllers](http://guides.rubyonrails.org/action_controller_overview.html) {#providing-resourceful-behavior-for-[rails-controllers](http://guides.rubyonrails.org/action_controller_overview.html)}
 
-### ...if only the REST of life were this easy
+### ...if only the REST of life were this easy {#...if-only-the-rest-of-life-were-this-easy}
 
 Simply include the Coast module in your controller and get these actions for free.
 
@@ -16,42 +19,42 @@ But wait... there's more.
 * **Familiar** - [Sinatra](http://www.sinatrarb.com/) like DSL for hooking into action callbacks
 * **Secure** - implicit authorization with your favorite libs... *such as [CanCan](https://github.com/ryanb/cancan)*
 
-### Works best when you stick to [Rails conventions](http://guides.rubyonrails.org/getting_started.html)
+### Works best when you stick to [Rails conventions](http://guides.rubyonrails.org/getting_started.html) {#works-best-when-you-stick-to-[rails-conventions](http://guides.rubyonrails.org/getting_started.html)}
 
-## Quick-start for the lazy
+## Quick-start for the lazy {#quick-start-for-the-lazy}
 
 Assume you have a simple app structure for beach bums.
 
-```bash
+{% endhighlight %}
 app/controllers/beach_bums_controller.rb
 app/models/beach_bum.rb
-```
+{% endhighlight %}
 
 Install the GEM.
 
-```bash
+{% endhighlight %}
 $gem install coast
-```
+{% endhighlight %}
 
 Tweak some files.
 
-```ruby
-# config/routes.rb
+{% highlight ruby %}
+# config/routes.rb {#config/routes.rb}
 Beach::Application.routes.draw do
   resources :beach_bums
 end
-```
+{% endhighlight %}
 
-```ruby
-# app/controllers/beach_bums_controller.rb
+{% highlight ruby %}
+# app/controllers/beach_bums_controller.rb {#app/controllers/beach_bums_controller.rb}
 class BeachBumsController < ApplicationController
   include Coast
 end
-```
+{% endhighlight %}
 
 Congratulations... you now have a RESTful API for **beach bums**.
 
-## Callbacks
+## Callbacks {#callbacks}
 
 Coast uses a [Sinatra](http://www.sinatrarb.com/) like DSL to provide hooks into the action lifecycle.
 
@@ -61,10 +64,10 @@ The following hooks are supported for each action.
 * `respond_to` *- after authorization and db work but before rendering or redirecting*
 * `after` *- after all other action logic is performed... just like a [Rails after_filter](http://guides.rubyonrails.org/action_controller_overview.html#filters)*
 
-### How to use the callbacks
+### How to use the callbacks {#how-to-use-the-callbacks}
 
-```ruby
-# app/controllers/beach_bums_controller.rb
+{% highlight ruby %}
+# app/controllers/beach_bums_controller.rb {#app/controllers/beach_bums_controller.rb}
 class BeachBumsController < ApplicationController
   include Coast
 
@@ -87,16 +90,16 @@ class BeachBumsController < ApplicationController
   end
 
 end
-```
+{% endhighlight %}
 
-## Authorization
+## Authorization {#authorization}
 
 Coast implicitly calls an authorize method prior to executing any action logic.
 
 You have complete control over this method. Here's an example.
 
-```ruby
-# app/controllers/beach_bums_controller.rb
+{% highlight ruby %}
+# app/controllers/beach_bums_controller.rb {#app/controllers/beach_bums_controller.rb}
 class BeachBumsController < ApplicationController
   include Coast
   set_authorize_method :authorize
@@ -110,30 +113,30 @@ class BeachBumsController < ApplicationController
     render :text => "Not Allowed", :status => 401
   end
 end
-```
+{% endhighlight %}
 
 Note the authorize method signature. The first arg is the **action** being performed. The second arg is the **record(s)** being operated on. The last arg is the **request** object.
 
 While originally written to support [CanCan](https://github.com/ryanb/cancan), its pretty simple to take control and manage authorization yourself.
 
-## Advanced Usage
+## Advanced Usage {#advanced-usage}
 
 Coast comes with few tricks up its sleeve.
 
 If your model and controller names deviate from Rails conventions, you can explicitly set the model like so.
 
-```ruby
-# app/controllers/beach_bums_controller.rb
+{% highlight ruby %}
+# app/controllers/beach_bums_controller.rb {#app/controllers/beach_bums_controller.rb}
 class BeachBumsController < ApplicationController
   include Coast
   set_resourceful_model SurferDude
 end
-```
+{% endhighlight %}
 
 You can conditionally prevent mutating behavior on the server by setting an instance variable like so. *It's a little arcane, but that's on purpose.*
 
-```ruby
-# app/controllers/beach_bums_controller.rb
+{% highlight ruby %}
+# app/controllers/beach_bums_controller.rb {#app/controllers/beach_bums_controller.rb}
 class BeachBumsController < ApplicationController
   include Coast
 
@@ -153,9 +156,9 @@ class BeachBumsController < ApplicationController
   end
 
 end
-```
+{% endhighlight %}
 
-## Testing
+## Testing {#testing}
 
 There are some interesting additions to MiniTest::Mock since I mock some of Rails to make testing fast & fun.
 
@@ -163,27 +166,27 @@ Poke around the test code and let me know what you think.
 
 How to run the tests.
 
-```bash
+{% endhighlight %}
 $rvm 1.9.3
 $gem install bundler
 $bundle
 $rake test
-```
+{% endhighlight %}
 
 Ahh... passing tests.
 
-## Contributing
+## Contributing {#contributing}
 
 I'm looking for hand-outs, so please fork and submit pull requests. Bug fixes, features, whatever...
 
-## Nods
+## Nods {#nods}
 
 <blockquote class="twitter-tweet"><p>I'm tired of writing RESTful boilerplate (& scaffold is overkill), so I'm stoked @<a href="https://twitter.com/natehop">natehop</a> released the Coast gem: <a href="https://t.co/gjCukFoW" title="https://github.com/hopsoft/coast">github.com/hopsoft/coast</a></p>&mdash; Brandon Hays (@tehviking) <a href="https://twitter.com/tehviking/status/189739333857710080" data-datetime="2012-04-10T15:39:17+00:00">April 10, 2012</a></blockquote>
 <script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-## License
+## License {#license}
 
-### The MIT License (MIT)
+### The MIT License (MIT) {#the-mit-license-(mit)}
 Copyright (c) 2012 Nathan Hopkins
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
