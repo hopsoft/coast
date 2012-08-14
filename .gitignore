@@ -1,3 +1,4 @@
 .rvmrc
 .tmp
 *.gem
+_site
