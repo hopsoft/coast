@@ -85,7 +85,7 @@ class BeachBumsController < ApplicationController
 
   after :show do
     # do some last minute housekeeping after every thing else is done
-    flash[:notice] = "Sorry brah... we'll be back when the surf stops crackin'"
+    Rails.logger.info "Hey brah... we just completed the show action."
   end
 
 end
