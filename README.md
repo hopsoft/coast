@@ -2,6 +2,8 @@
 
 ## Providing resourceful behavior for [Rails controllers](http://guides.rubyonrails.org/action_controller_overview.html)
 
+![Coast GEM](hopsoft.github.com/coast/images/coast.png)
+
 ### ...if only the REST of life were this easy
 
 Simply include the Coast module in your controller and get these actions for free.
