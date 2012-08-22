@@ -12,10 +12,10 @@ Simply include the Coast module in your controller and get these actions for fre
 
 But wait... there's more.
 
-* **Lightweight** - about 200 lines of code... *you can grok it in 10 minutes by skimming lib/coast.rb*
+* **Lightweight** - about 200 lines of code... *you can grok it in 5 minutes by skimming lib/coast.rb*
 * **Unobtrusive** - no monkey patches
 * **Flexible** - support for html, xml, and json formats
-* **Familiar** - [Sinatra](http://www.sinatrarb.com/) like DSL for hooking into action callbacks
+* **Familiar** - simple DSL for hooking into action callbacks
 * **Secure** - implicit authorization with your favorite libs... *such as [CanCan](https://github.com/ryanb/cancan)*
 
 ### Works best when you stick to [Rails conventions](http://guides.rubyonrails.org/getting_started.html)
