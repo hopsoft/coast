@@ -1,0 +1,6 @@
+fr:
+  coast:
+    format_not_supported: "Format non pris en charge ! Utilisez le format html."
+    was_created: "%{model} créé(e) avec succès." 
+    was_updated: "%{model} correctement mis(e) à jour."
+    was_destroyed: "%{model} détruit(e) avec succès."
