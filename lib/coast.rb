@@ -90,7 +90,7 @@ module Coast
     unless performed?
       respond_to do |format|
         format.html { render :new }
-        format_json_and_xml(format, :message => "Format not supported! Use the html format.")
+        format_json_and_xml(format, :message => I18n.t("coast.format_not_supported"))
       end
     end
     invoke_callback(:after_new)
@@ -105,7 +105,7 @@ module Coast
     unless performed?
       respond_to do |format|
         format.html { render :edit }
-        format_json_and_xml(format, :message => "Format not supported! Use the html format.")
+        format_json_and_xml(format, :message => I18n.t("coast.format_not_supported"))
       end
     end
     invoke_callback(:after_edit)
@@ -155,7 +155,7 @@ module Coast
     unless performed?
       respond_to do |format|
         if success
-          flash[:notice] = "#{resourceful_model.name} was successfully created."
+          flash[:notice] = I18n.t("coast.was_created", :model => resourceful_model.name)
           format.html { redirect_to(@resourceful_item) }
           format_json_and_xml(format, @resourceful_item, :status => :created, :location => @resourceful_item)
         else
@@ -177,7 +177,7 @@ module Coast
     unless performed?
       respond_to do |format|
         if success
-          flash[:notice] = "#{resourceful_model.name} was successfully updated."
+          flash[:notice] = I18n.t("coast.was_updated", :model => resourceful_model.name)
           format.html { redirect_to(@resourceful_item) }
           format_json_and_xml(format, @resourceful_item)
         else
@@ -197,7 +197,7 @@ module Coast
     @resourceful_item.destroy unless @skip_db_destroy
     invoke_callback(:respond_to_destroy)
     unless performed?
-      flash[:notice] = "#{resourceful_model.name} was successfully destroyed" if @resourceful_item.destroyed?
+      flash[:notice] = I18n.t("coast.was_destroyed", :model => resourceful_model.name) if @resourceful_item.destroyed?
       respond_to do |format|
         format.html { redirect_to root_url }
         format_json_and_xml(format, @resourceful_item)
