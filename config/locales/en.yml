@@ -1,6 +1,0 @@
-en:
-  coast:
-    format_not_supported: "Format not supported! Use the html format."
-    was_created: "%{model} was successfully created." 
-    was_updated: "%{model} was successfully updated."
-    was_destroyed: "%{model} was successfully destroyed"
