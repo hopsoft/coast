@@ -9,10 +9,7 @@ Gem::Specification.new do |s|
   s.files       = [ "lib/coast.rb" ]
   s.test_files  = [ "spec/coast_spec.rb" ]
   s.homepage    ="https://github.com/hopsoft/coast"
-  
   s.add_dependency("activesupport")
-  s.add_dependency("railties", "~> 3.1")
-  
   s.license = "MIT"
 
 end
