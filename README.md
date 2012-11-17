@@ -157,26 +157,17 @@ class BeachBumsController < ApplicationController
 end
 ```
 
-## Testing
-
-There are some interesting additions to MiniTest::Mock since I mock some of Rails to make testing fast & fun.
-
-Poke around the test code and let me know what you think.
-
-How to run the tests.
+## Running the Tests
 
 ```bash
-$rvm 1.9.3
-$gem install bundler
-$bundle
-$rake test
+$ gem install coast
+$ gem unpack coast
+$ cd coast-[VERSION]
+$ bundle
+$ mt
 ```
 
 Ahh... passing tests.
-
-## Contributing
-
-I'm looking for hand-outs, so please fork and submit pull requests. Bug fixes, features, whatever...
 
 ## Nods
 
