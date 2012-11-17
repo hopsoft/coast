@@ -1,3 +1,8 @@
+require "rubygems"
+require "bundler"
+Bundler.require :default
+require File.join(File.dirname(__FILE__), "coast", "version")
+
 # Makes any controller resourceful by providing the following actions:
 # * new
 # * edit
