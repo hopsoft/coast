@@ -43,13 +43,13 @@ class TestCoast < MicroTest::Test
     mock.stub(:respond_to) { |&block| @responded = true; block.call(format) }
     mock.stub(:render) { |*args| @performed = @rendered = true }
     mock.stub(:redirect_to) { |*args| @redirected = true; render }
-    mock.stub(:request) { TestCoast.mock_request }
+    mock.stub(:request) { @request ||= TestCoast.mock_request }
     mock.stub(:params) { request.params }
     mock.stub(:flash) { request.flash }
     mock.stub(:performed?) { @performed }
     mock.stub(:responded?) { @responded }
     mock.stub(:rendered?) { @rendered }
-    mock.stub(:format) { TestCoast.mock_format }
+    mock.stub(:format) { @format ||= TestCoast.mock_format }
     mock.stub(:root_url) { "/" }
     mock
   end
@@ -123,19 +123,18 @@ class TestCoast < MicroTest::Test
 
   RESTFUL_METHODS.each do |method|
 
-    test "responds and renders" do
+    test "<#{method}> responds and renders" do
       @mock_controller.send(method)
       assert @mock_controller.responded?
       assert @mock_controller.rendered?
     end
 
-  #     it "renders for the formats html, xml, json" do
-  #       controller = Coast::TestableController.new
-  #       controller.send(method)
-  #       assert controller.html, "Did not respond to the html format"
-  #       assert controller.xml, "Did not respond to the xml format"
-  #       assert controller.json, "Did not respond to the json format"
-  #     end
+    test "<#{method}> renders for the formats html, xml, json" do
+      @mock_controller.send(method)
+      assert(@mock_controller.format.instance_eval { @html })
+      assert(@mock_controller.format.instance_eval { @xml })
+      assert(@mock_controller.format.instance_eval { @json })
+    end
 
   #     it "invokes the callbacks before, respond_to, after" do
   #       callbacks = []
