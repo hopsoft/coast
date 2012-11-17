@@ -118,6 +118,18 @@ Note the authorize method signature. The first arg is the **action** being perfo
 
 While originally written to support [CanCan](https://github.com/ryanb/cancan), its pretty simple to take control and manage authorization yourself.
 
+## Localization
+
+Enable I18n internationalization with a simple method call.
+
+```ruby
+# app/controllers/beach_bums_controller.rb
+class BeachBumsController < ApplicationController
+  include Coast
+  set_localized true
+end
+```
+
 ## Advanced Usage
 
 Coast comes with few tricks up its sleeve.
