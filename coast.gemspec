@@ -11,8 +11,10 @@ Gem::Specification.new do |spec|
   spec.files       = FileList[
     "lib/coast.rb",
     "lib/**/*.rb",
-    "LICENSE.txt",
-    "README.md"
+    "Gemfile",
+    "Gemfile.lock",
+    "README.md",
+    "LICENSE.txt"
   ]
   spec.test_files  = FileList[
     "test/**/*.rb"
