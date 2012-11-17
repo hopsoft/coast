@@ -32,7 +32,7 @@ PLATFORMS
 DEPENDENCIES
   activesupport
   awesome_print
-  micro_mock
+  micro_mock (= 0.0.5)
   micro_test (= 0.3.0.rc4)
   pry
   pry-stack_explorer
