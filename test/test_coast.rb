@@ -70,13 +70,23 @@ class TestCoast < MicroTest::Test
     @controller.class.set_resourceful_model @model.class
   end
 
+  test ".set_localized" do
+    @controller.class.set_localized true
+    assert @controller.class.localized?
+  end
+
+  test ".localized=" do
+    @controller.class.localized = true
+    assert @controller.class.localized?
+  end
+
   test ".set_authorize_method" do
     @controller.class.set_authorize_method :authorize!
     assert @controller.class.authorize_method == :authorize!
   end
 
-  test ".authorize_method=" do
-    @controller.class.set_authorize_method :authorize!
+  test ".authorize=" do
+    @controller.class.authorize_method = :authorize!
     assert @controller.class.authorize_method == :authorize!
   end
 
@@ -120,6 +130,39 @@ class TestCoast < MicroTest::Test
     RESTFUL_METHODS.each do |method|
       assert @controller.respond_to?(method)
     end
+  end
+
+  test "<create> flash message" do
+    @controller.create
+    assert @controller.flash[:notice].ends_with?("was successfully created.")
+  end
+
+  test "<create> localized flash message" do
+    @controller.class.localized = true
+    @controller.create
+    assert @controller.flash[:notice] =~ /translation missing: .+was_successfully_created/
+  end
+
+  test "<update> flash message" do
+    @controller.update
+    assert @controller.flash[:notice].ends_with?("was successfully updated.")
+  end
+
+  test "<update> localized flash message" do
+    @controller.class.localized = true
+    @controller.update
+    assert @controller.flash[:notice] =~ /translation missing: .+was_successfully_updated/
+  end
+
+  test "<destroy> flash message" do
+    @controller.destroy
+    assert @controller.flash[:notice].ends_with?("was successfully destroyed.")
+  end
+
+  test "<destroy> localized flash message" do
+    @controller.class.localized = true
+    @controller.destroy
+    assert @controller.flash[:notice] =~ /translation missing: .+was_successfully_destroyed/
   end
 
   RESTFUL_METHODS.each do |method|

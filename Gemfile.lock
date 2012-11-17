@@ -4,6 +4,7 @@ GEM
     activesupport (3.2.9)
       i18n (~> 0.6)
       multi_json (~> 1.0)
+    awesome_print (1.1.0)
     binding_of_caller (0.6.8)
     celluloid (0.12.3)
       facter (>= 1.6.12)
@@ -30,6 +31,7 @@ PLATFORMS
 
 DEPENDENCIES
   activesupport
+  awesome_print
   micro_mock
   micro_test (= 0.3.0.rc4)
   pry

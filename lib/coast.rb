@@ -37,6 +37,14 @@ require File.join(File.dirname(__FILE__), "coast", "version")
 module Coast
 
   module ClassMethods
+    def set_localized(arg)
+      @set_localized = arg
+    end
+    alias :localized= :set_localized
+
+    def localized?
+      @set_localized
+    end
 
     def set_authorize_method(arg)
       @authorize_method = arg
@@ -160,7 +168,7 @@ module Coast
     unless performed?
       respond_to do |format|
         if success
-          flash[:notice] = "#{resourceful_model.name} was successfully created."
+          write_to_flash :notice, "#{resourceful_model.name} was successfully created."
           format.html { redirect_to(@resourceful_item) }
           format_json_and_xml(format, @resourceful_item, :status => :created, :location => @resourceful_item)
         else
@@ -182,7 +190,7 @@ module Coast
     unless performed?
       respond_to do |format|
         if success
-          flash[:notice] = "#{resourceful_model.name} was successfully updated."
+          write_to_flash :notice, "#{resourceful_model.name} was successfully updated."
           format.html { redirect_to(@resourceful_item) }
           format_json_and_xml(format, @resourceful_item)
         else
@@ -202,7 +210,7 @@ module Coast
     @resourceful_item.destroy unless @skip_db_destroy
     invoke_callback(:respond_to_destroy)
     unless performed?
-      flash[:notice] = "#{resourceful_model.name} was successfully destroyed" if @resourceful_item.destroyed?
+      write_to_flash(:notice, "#{resourceful_model.name} was successfully destroyed.") if @resourceful_item.destroyed?
       respond_to do |format|
         format.html { redirect_to root_url }
         format_json_and_xml(format, @resourceful_item)
@@ -237,6 +245,15 @@ module Coast
   end
 
   private
+
+  def write_to_flash(key, message)
+    if self.class.localized?
+      message_key = message.downcase.strip.gsub(/\W+$/, "").gsub(/\W/, "_")
+      flash[key] = I18n.translate(message_key)
+    else
+      flash[key] = message
+    end
+  end
 
   def invoke_callback(name)
     send(name) if respond_to?(name)
