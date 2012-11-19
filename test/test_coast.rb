@@ -19,7 +19,6 @@ class TestCoast < MicroTest::Test
     mock.stub(:destroyed?) { @destroyed }
     mock.stub(:update_attributes) { |*args| @attributes_updated = true }
     mock.stub(:save) { |*args| @saved = true }
-    mock.stub(:table_name) { "mocks" }
     mock.class.stub(:find) { |*args| TestCoast.mock_model }
     mock.class.stub(:all) { (1..5).map { TestCoast.mock_model } }
     mock
