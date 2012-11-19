@@ -21,7 +21,7 @@ class TestCoast < MicroTest::Test
     mock.stub(:save) { |*args| @saved = true }
     mock.stub(:table_name) { "mocks" }
     mock.class.stub(:find) { |*args| TestCoast.mock_model }
-    mock.class.stub(:all) { [1..5].map { TestCoast.mock_model } }
+    mock.class.stub(:all) { (1..5).map { TestCoast.mock_model } }
     mock
   end
 
