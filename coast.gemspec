@@ -21,8 +21,8 @@ Gem::Specification.new do |spec|
   ]
   spec.homepage    ="https://github.com/hopsoft/coast"
   spec.add_dependency "activesupport"
-  spec.add_development_dependency "micro_test", "0.3.0.rc4"
-  spec.add_development_dependency "micro_mock", "0.0.8"
+  spec.add_development_dependency "micro_test", "~>0.3"
+  spec.add_development_dependency "micro_mock", "~>1.0"
   spec.add_development_dependency "pry"
   spec.add_development_dependency "pry-stack_explorer"
   spec.add_development_dependency "awesome_print"
