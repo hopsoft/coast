@@ -15,21 +15,21 @@ class TestCoast < MicroTest::Test
   # Creates a mock model instance [ActiveRecord::Base].
   def self.mock_model
     mock = MicroMock.make.new
-    mock.stub(:destroy) { @destroyed = true }
-    mock.stub(:destroyed?) { @destroyed }
-    mock.stub(:update_attributes) { |*args| @attributes_updated = true }
-    mock.stub(:save) { |*args| @saved = true }
-    mock.class.stub(:find) { |*args| TestCoast.mock_model }
-    mock.class.stub(:all) { (1..5).map { TestCoast.mock_model } }
+    mock.def(:destroy) { @destroyed = true }
+    mock.def(:destroyed?) { @destroyed }
+    mock.def(:update_attributes) { |*args| @attributes_updated = true }
+    mock.def(:save) { |*args| @saved = true }
+    mock.class.def(:find) { |*args| TestCoast.mock_model }
+    mock.class.def(:all) { (1..5).map { TestCoast.mock_model } }
     mock
   end
 
   # Creates a mock request instance [ActionDispatch::Request].
   def self.mock_request
     mock = MicroMock.make.new
-    mock.stub(:request) { @request ||= MicroMock.make.new }
-    mock.stub(:params) { @params ||= {} }
-    mock.stub(:flash) { @flash ||= {} }
+    mock.def(:request) { @request ||= MicroMock.make.new }
+    mock.def(:params) { @params ||= {} }
+    mock.def(:flash) { @flash ||= {} }
     mock
   end
 
@@ -37,29 +37,29 @@ class TestCoast < MicroTest::Test
   def self.mock_controller
     mock = MicroMock.make.new
     mock.class.send :include, Coast
-    mock.stub(:authorize!) { |*args| @authorize_invoked = true }
-    mock.stub(:authorize_invoked?) { @authorize_invoked }
-    mock.stub(:respond_to) { |&block| @responded = true; block.call(format) }
-    mock.stub(:responded?) { @responded }
-    mock.stub(:render) { |*args| @performed = @rendered = true }
-    mock.stub(:performed?) { @performed }
-    mock.stub(:rendered?) { @rendered }
-    mock.stub(:redirect_to) { |*args| @redirected = true; render }
-    mock.stub(:redirected?) { @redirected }
-    mock.stub(:request) { @request ||= TestCoast.mock_request }
-    mock.stub(:params) { request.params }
-    mock.stub(:flash) { request.flash }
-    mock.stub(:format) { @format ||= TestCoast.mock_format }
-    mock.stub(:root_url) { "/" }
+    mock.def(:authorize!) { |*args| @authorize_invoked = true }
+    mock.def(:authorize_invoked?) { @authorize_invoked }
+    mock.def(:respond_to) { |&block| @responded = true; block.call(format) }
+    mock.def(:responded?) { @responded }
+    mock.def(:render) { |*args| @performed = @rendered = true }
+    mock.def(:performed?) { @performed }
+    mock.def(:rendered?) { @rendered }
+    mock.def(:redirect_to) { |*args| @redirected = true; render }
+    mock.def(:redirected?) { @redirected }
+    mock.def(:request) { @request ||= TestCoast.mock_request }
+    mock.def(:params) { request.params }
+    mock.def(:flash) { request.flash }
+    mock.def(:format) { @format ||= TestCoast.mock_format }
+    mock.def(:root_url) { "/" }
     mock
   end
 
   # Creates a mock format instance [ActionController::MimeResponds::Collector].
   def self.mock_format
     mock = MicroMock.make.new
-    mock.stub(:html) { |&block| @html = true; block.call if block }
-    mock.stub(:xml) { |&block| @xml = true; block.call if block }
-    mock.stub(:json) { |&block| @json = true; block.call if block }
+    mock.def(:html) { |&block| @html = true; block.call if block }
+    mock.def(:xml) { |&block| @xml = true; block.call if block }
+    mock.def(:json) { |&block| @json = true; block.call if block }
     mock
   end
 
