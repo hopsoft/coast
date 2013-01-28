@@ -15,9 +15,12 @@ class TestCoast < MicroTest::Test
   # Creates a mock model instance [ActiveRecord::Base].
   def self.mock_model
     mock = MicroMock.make.new
+    mock.def(:valid?) { true }
+    mock.attr(:errors, {})
     mock.def(:destroy) { @destroyed = true }
     mock.def(:destroyed?) { @destroyed }
     mock.def(:update_attributes) { |*args| @attributes_updated = true }
+    mock.def(:saved?) { @saved }
     mock.def(:save) { |*args| @saved = true }
     mock.class.def(:find) { |*args| TestCoast.mock_model }
     mock.class.def(:all) { (1..5).map { TestCoast.mock_model } }
@@ -41,7 +44,7 @@ class TestCoast < MicroTest::Test
     mock.def(:authorize_invoked?) { @authorize_invoked }
     mock.def(:respond_to) { |&block| @responded = true; block.call(format) }
     mock.def(:responded?) { @responded }
-    mock.def(:render) { |*args| @performed = @rendered = true }
+    mock.def(:render) { |*args| @render_args = args; @performed = @rendered = true }
     mock.def(:performed?) { @performed }
     mock.def(:rendered?) { @rendered }
     mock.def(:redirect_to) { |*args| @redirected = true; render }
@@ -131,8 +134,20 @@ class TestCoast < MicroTest::Test
     end
   end
 
+  test "<create> invalid record" do
+    @controller.class.class_eval do
+      before :create do
+        @resourceful_item = TestCoast.mock_model
+        @resourceful_item.def("valid?") { false }
+      end
+    end
+    @controller.create
+    assert !@controller.instance_eval{ @resourceful_item }.saved?
+  end
+
   test "<create> flash message" do
     @controller.create
+    assert @controller.instance_eval{ @resourceful_item }.saved?
     assert @controller.flash[:notice].ends_with?("was successfully created.")
   end
 

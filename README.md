@@ -176,7 +176,7 @@ $ gem install coast
 $ gem unpack coast
 $ cd coast-[VERSION]
 $ bundle
-$ mt
+$ bundle exec mt
 ```
 
 Ahh... passing tests.

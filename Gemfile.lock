@@ -4,6 +4,7 @@ GEM
     activesupport (3.2.11)
       i18n (~> 0.6)
       multi_json (~> 1.0)
+    binding_of_caller (0.6.8)
     coderay (1.0.8)
     i18n (0.6.1)
     method_source (0.8.1)
@@ -12,11 +13,13 @@ GEM
       os
     multi_json (1.5.0)
     os (0.9.6)
-    pry (0.9.10)
+    pry (0.9.11.4)
       coderay (~> 1.0.5)
       method_source (~> 0.8)
-      slop (~> 3.3.1)
-    slop (3.3.3)
+      slop (~> 3.4)
+    pry-stack_explorer (0.4.7)
+      binding_of_caller (~> 0.6.8)
+    slop (3.4.3)
 
 PLATFORMS
   ruby
@@ -26,3 +29,4 @@ DEPENDENCIES
   micro_mock
   micro_test
   pry
+  pry-stack_explorer

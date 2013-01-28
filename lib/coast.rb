@@ -163,7 +163,7 @@ module Coast
     @resourceful_item ||= resourceful_model.new(params[resourceful_model.name.underscore])
     send(self.class.authorize_method, :create, @resourceful_item, request)
     init_instance_variables
-    success = @skip_db_create || @resourceful_item.save
+    success = @skip_db_create || @resourceful_item.valid? && @resourceful_item.save
     invoke_callback(:respond_to_create)
     unless performed?
       respond_to do |format|
