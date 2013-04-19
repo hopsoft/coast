@@ -1,6 +1,6 @@
 require "rubygems"
-require "bundler"
-Bundler.require(:default, :test)
+require "micro_test"
+require "micro_mock"
 require "active_support/all"
 require File.join(File.dirname(__FILE__), "..", "lib", "coast")
 
