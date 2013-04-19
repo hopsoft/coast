@@ -176,11 +176,10 @@ end
 ## Running the Tests
 
 ```bash
-$ gem install coast
-$ gem unpack coast
-$ cd coast-[VERSION]
-$ bundle
-$ bundle exec mt
+gem install coast
+gem unpack coast
+cd coast-VERSION
+rake
 ```
 
 Ahh... passing tests.
