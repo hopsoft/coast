@@ -1,5 +1,9 @@
 # Coast
 
+[![Build Status](https://travis-ci.org/hopsoft/coast.png)](https://travis-ci.org/hopsoft/coast)
+[![Dependency Status](https://gemnasium.com/hopsoft/coast.png)](https://gemnasium.com/hopsoft/coast)
+[![Code Climate](https://codeclimate.com/github/hopsoft/coast.png)](https://codeclimate.com/github/hopsoft/coast)
+
 ## Providing resourceful behavior for [Rails controllers](http://guides.rubyonrails.org/action_controller_overview.html)
 
 ![Coast GEM](http://hopsoft.github.com/coast/images/coast.png)
