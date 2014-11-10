@@ -1,12 +1,12 @@
 # Coast
 
-[![Build Status](https://travis-ci.org/hopsoft/coast.png)](https://travis-ci.org/hopsoft/coast)
+[![Lines of Code](http://img.shields.io/badge/loc-194-brightgreen.svg)](http://blog.codinghorror.com/the-best-code-is-no-code-at-all/)
+[![Code Status](https://codeclimate.com/github/hopsoft/coast.png)](https://codeclimate.com/github/hopsoft/coast)
 [![Dependency Status](https://gemnasium.com/hopsoft/coast.png)](https://gemnasium.com/hopsoft/coast)
-[![Code Climate](https://codeclimate.com/github/hopsoft/coast.png)](https://codeclimate.com/github/hopsoft/coast)
+[![Build Status](https://travis-ci.org/hopsoft/coast.png)](https://travis-ci.org/hopsoft/coast)
+[![Coverage Status](https://img.shields.io/coveralls/hopsoft/coast.svg)](https://coveralls.io/r/hopsoft/coast)
 
 ## Providing resourceful behavior for [Rails controllers](http://guides.rubyonrails.org/action_controller_overview.html)
-
-![Coast GEM](http://hopsoft.github.com/coast/images/coast.png)
 
 ### ...if only the REST of life were this easy
 
@@ -172,17 +172,6 @@ class BeachBumsController < ApplicationController
 
 end
 ```
-
-## Running the Tests
-
-```bash
-gem install coast
-gem unpack coast
-cd coast-VERSION
-rake
-```
-
-Ahh... passing tests.
 
 ## Nods
 

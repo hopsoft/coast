@@ -2,6 +2,9 @@ require "rubygems"
 require "micro_test"
 require "micro_mock"
 require "active_support/all"
+require "coveralls"
+Coveralls.wear!
+
 require File.join(File.dirname(__FILE__), "..", "lib", "coast")
 
 class TestCoast < MicroTest::Test
