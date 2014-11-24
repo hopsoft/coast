@@ -1,13 +1,13 @@
 require "rubygems"
-require "micro_test"
+require "pry-test"
 require "micro_mock"
 require "active_support/all"
 require "coveralls"
 Coveralls.wear!
 
-require File.join(File.dirname(__FILE__), "..", "lib", "coast")
+require File.expand_path("../../lib/coast", __FILE__)
 
-class TestCoast < MicroTest::Test
+class TestCoast < PryTest::Test
 
   RESTFUL_METHODS = %w(index show new edit create update destroy)
   ITEM_METHODS    = %w(show new edit create update destroy)

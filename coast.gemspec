@@ -15,8 +15,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency "activesupport"
 
   gem.add_development_dependency "rake"
-  gem.add_development_dependency "micro_test"
+  gem.add_development_dependency "pry-test"
   gem.add_development_dependency "micro_mock"
-  gem.add_development_dependency "awesome_print"
   gem.add_development_dependency "coveralls"
 end
