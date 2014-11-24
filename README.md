@@ -1,14 +1,13 @@
+[![Lines of Code](http://img.shields.io/badge/lines_of_code-60-brightgreen.svg?style=flat)](http://blog.codinghorror.com/the-best-code-is-no-code-at-all/)
+[![Code Status](http://img.shields.io/codeclimate/github/hopsoft/coast.svg?style=flat)](https://codeclimate.com/github/hopsoft/coast)
+[![Dependency Status](http://img.shields.io/gemnasium/hopsoft/coast.svg?style=flat)](https://gemnasium.com/hopsoft/coast)
+[![Build Status](http://img.shields.io/travis/hopsoft/coast.svg?style=flat)](https://travis-ci.org/hopsoft/coast)
+[![Coverage Status](https://img.shields.io/coveralls/hopsoft/coast.svg?style=flat)](https://coveralls.io/r/hopsoft/coast?branch=master)
+[![Downloads](http://img.shields.io/gem/dt/coast.svg?style=flat)](http://rubygems.org/gems/coast)
+
 # Coast
 
-[![Lines of Code](http://img.shields.io/badge/loc-194-brightgreen.svg)](http://blog.codinghorror.com/the-best-code-is-no-code-at-all/)
-[![Code Status](https://codeclimate.com/github/hopsoft/coast.png)](https://codeclimate.com/github/hopsoft/coast)
-[![Dependency Status](https://gemnasium.com/hopsoft/coast.png)](https://gemnasium.com/hopsoft/coast)
-[![Build Status](https://travis-ci.org/hopsoft/coast.png)](https://travis-ci.org/hopsoft/coast)
-[![Coverage Status](https://img.shields.io/coveralls/hopsoft/coast.svg)](https://coveralls.io/r/hopsoft/coast)
-
-## Providing resourceful behavior for [Rails controllers](http://guides.rubyonrails.org/action_controller_overview.html)
-
-### ...if only the REST of life were this easy
+## Resourceful behavior for [Rails controllers](http://guides.rubyonrails.org/action_controller_overview.html)
 
 Simply include the Coast module in your controller and get these actions for free.
 
