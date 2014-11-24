@@ -15,7 +15,7 @@ Simply include the Coast module in your controller and get these actions for fre
 
 But wait... there's more.
 
-* **Lightweight** - about 200 lines of code... *you can grok it in 5 minutes by skimming lib/coast.rb*
+* **Lightweight** - about 200 lines of code... *you can grok it in 5 minutes by skimming [lib/coast.rb](https://github.com/hopsoft/coast/blob/master/lib/coast.rb)*
 * **Unobtrusive** - no monkey patches
 * **Flexible** - support for html, xml, and json formats
 * **Familiar** - simple DSL for hooking into action callbacks
@@ -172,7 +172,7 @@ class BeachBumsController < ApplicationController
 end
 ```
 
-## Nods
+## Praise
 
 [I'm tired of writing RESTful boilerplate (& scaffold is overkill), so I'm stoked natehop released the Coast gem.](https://twitter.com/tehviking/status/189739333857710080)
 
