@@ -19,7 +19,7 @@ But wait... there's more.
 * **Unobtrusive** - no monkey patches
 * **Flexible** - support for html, xml, and json formats
 * **Familiar** - simple DSL for hooking into action callbacks
-* **Secure** - implicit authorization with your favorite libs... *such as [CanCan](https://github.com/ryanb/cancan)*
+* **Secure** - implicit authorization with your favorite libs... *such as [CanCanCan](https://github.com/CanCanCommunity/cancancan), [Perm](https://github.com/hopsoft/perm), et al.*
 
 ### Works best when you stick to [Rails conventions](http://guides.rubyonrails.org/getting_started.html)
 
