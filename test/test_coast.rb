@@ -1,6 +1,6 @@
 require "rubygems"
 require "pry-test"
-require "micro_mock"
+require "spoof"
 require "active_support/all"
 require "coveralls"
 Coveralls.wear!
@@ -17,55 +17,55 @@ class TestCoast < PryTest::Test
 
   # Creates a mock model instance [ActiveRecord::Base].
   def self.mock_model
-    mock = MicroMock.make.new
-    mock.def(:valid?) { true }
+    mock = Spoof.make.new
+    mock.method(:valid?) { true }
     mock.attr(:errors, {})
-    mock.def(:destroy) { @destroyed = true }
-    mock.def(:destroyed?) { @destroyed }
-    mock.def(:update_attributes) { |*args| @attributes_updated = true }
-    mock.def(:saved?) { @saved }
-    mock.def(:save) { |*args| @saved = true }
-    mock.class.def(:find) { |*args| TestCoast.mock_model }
-    mock.class.def(:all) { (1..5).map { TestCoast.mock_model } }
+    mock.method(:destroy) { @destroyed = true }
+    mock.method(:destroyed?) { @destroyed }
+    mock.method(:update_attributes) { |*args| @attributes_updated = true }
+    mock.method(:saved?) { @saved }
+    mock.method(:save) { |*args| @saved = true }
+    mock.class.method(:find) { |*args| TestCoast.mock_model }
+    mock.class.method(:all) { (1..5).map { TestCoast.mock_model } }
     mock
   end
 
   # Creates a mock request instance [ActionDispatch::Request].
   def self.mock_request
-    mock = MicroMock.make.new
-    mock.def(:request) { @request ||= MicroMock.make.new }
-    mock.def(:params) { @params ||= {} }
-    mock.def(:flash) { @flash ||= {} }
+    mock = Spoof.make.new
+    mock.method(:request) { @request ||= MicroMock.make.new }
+    mock.method(:params) { @params ||= {} }
+    mock.method(:flash) { @flash ||= {} }
     mock
   end
 
   # Creates a mock controller instance [ActionController::Base].
   def self.mock_controller
-    mock = MicroMock.make.new
+    mock = Spoof.make.new
     mock.class.send :include, Coast
-    mock.def(:authorize!) { |*args| @authorize_invoked = true }
-    mock.def(:authorize_invoked?) { @authorize_invoked }
-    mock.def(:respond_to) { |&block| @responded = true; block.call(format) }
-    mock.def(:responded?) { @responded }
-    mock.def(:render) { |*args| @render_args = args; @performed = @rendered = true }
-    mock.def(:performed?) { @performed }
-    mock.def(:rendered?) { @rendered }
-    mock.def(:redirect_to) { |*args| @redirected = true; render }
-    mock.def(:redirected?) { @redirected }
-    mock.def(:request) { @request ||= TestCoast.mock_request }
-    mock.def(:params) { request.params }
-    mock.def(:flash) { request.flash }
-    mock.def(:format) { @format ||= TestCoast.mock_format }
-    mock.def(:root_url) { "/" }
+    mock.method(:authorize!) { |*args| @authorize_invoked = true }
+    mock.method(:authorize_invoked?) { @authorize_invoked }
+    mock.method(:respond_to) { |&block| @responded = true; block.call(format) }
+    mock.method(:responded?) { @responded }
+    mock.method(:render) { |*args| @render_args = args; @performed = @rendered = true }
+    mock.method(:performed?) { @performed }
+    mock.method(:rendered?) { @rendered }
+    mock.method(:redirect_to) { |*args| @redirected = true; render }
+    mock.method(:redirected?) { @redirected }
+    mock.method(:request) { @request ||= TestCoast.mock_request }
+    mock.method(:params) { request.params }
+    mock.method(:flash) { request.flash }
+    mock.method(:format) { @format ||= TestCoast.mock_format }
+    mock.method(:root_url) { "/" }
     mock
   end
 
   # Creates a mock format instance [ActionController::MimeResponds::Collector].
   def self.mock_format
-    mock = MicroMock.make.new
-    mock.def(:html) { |&block| @html = true; block.call if block }
-    mock.def(:xml) { |&block| @xml = true; block.call if block }
-    mock.def(:json) { |&block| @json = true; block.call if block }
+    mock = Spoof.make.new
+    mock.method(:html) { |&block| @html = true; block.call if block }
+    mock.method(:xml) { |&block| @xml = true; block.call if block }
+    mock.method(:json) { |&block| @json = true; block.call if block }
     mock
   end
 
@@ -141,7 +141,7 @@ class TestCoast < PryTest::Test
     @controller.class.class_eval do
       before :create do
         @resourceful_item = TestCoast.mock_model
-        @resourceful_item.def("valid?") { false }
+        @resourceful_item.method("valid?") { false }
       end
     end
     @controller.create
