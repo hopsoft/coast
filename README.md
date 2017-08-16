@@ -5,7 +5,7 @@
 [![Coverage Status](https://img.shields.io/coveralls/hopsoft/coast.svg?style=flat)](https://coveralls.io/r/hopsoft/coast?branch=master)
 [![Downloads](http://img.shields.io/gem/dt/coast.svg?style=flat)](http://rubygems.org/gems/coast)
 
-<a href="https://app.codesponsor.io/link/QMSjMHrtPhvfmCnk5Hbikhhr/hopsoft/coast"><img src="https://app.codesponsor.io/embed/QMSjMHrtPhvfmCnk5Hbikhhr/hopsoft/coast.svg" style="width: 888px; height: 68px;" alt="Sponsor" /></a>
+<a rel="nofollow" href="https://app.codesponsor.io/link/QMSjMHrtPhvfmCnk5Hbikhhr/hopsoft/coast"><img src="https://app.codesponsor.io/embed/QMSjMHrtPhvfmCnk5Hbikhhr/hopsoft/coast.svg" style="width: 888px; height: 68px;" alt="Sponsor" /></a>
 
 # Coast
 
